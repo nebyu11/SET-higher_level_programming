@@ -276,6 +276,9 @@ class TestBase_from_json_string(unittest.TestCase):
     def test_from_json_string_empty_list(self):
         self.assertEqual([], Base.from_json_string("[]"))
 
+    def test_from_json_string_empty_string(self):
+        self.assertEqual([], Base.from_json_string(""))
+
     def test_from_json_string_no_args(self):
         with self.assertRaises(TypeError):
             Base.from_json_string()
@@ -335,6 +338,14 @@ class TestBase_create(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         s2 = Square.create(**s1_dictionary)
         self.assertNotEqual(s1, s2)
+
+    def test_create_rectangle_empty(self):
+        r = Rectangle.create()
+        self.assertIsInstance(r, Rectangle)
+
+    def test_create_square_empty(self):
+        s = Square.create()
+        self.assertIsInstance(s, Square)
 
 
 class TestBase_load_from_file(unittest.TestCase):
@@ -397,6 +408,11 @@ class TestBase_load_from_file(unittest.TestCase):
     def test_load_from_file_no_file(self):
         output = Square.load_from_file()
         self.assertEqual([], output)
+
+    def test_load_from_file_empty_file(self):
+        with open("Square.json", "w") as f:
+            f.write("")
+        self.assertEqual([], Square.load_from_file())
 
     def test_load_from_file_more_than_one_arg(self):
         with self.assertRaises(TypeError):
