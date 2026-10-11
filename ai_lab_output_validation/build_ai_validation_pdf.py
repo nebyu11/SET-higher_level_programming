@@ -239,9 +239,11 @@ def create_pdf(filename="c:/Users/Administrator/Desktop/SE 202/AI_Output_Validat
     gdrive_banner = (
         "<b>SUBMISSION CODE ACCESS (CRITERION 1):</b><br/>"
         "• <b>Primary Google Drive Code Link:</b> "
-        "<font color='#2B6CB0'><u>https://drive.google.com/drive/folders/1ieAJZJY1d9oHZPRUdErNO9y1awVH0i6m?usp=drive_link</u></font><br/>"
-        "• <b>Local Code Artifact:</b> <code>validate_ai_query.py</code> &nbsp;|&nbsp; "
-        "<b>Repository:</b> <code>set-high_level_programming</code>"
+        "<a href='https://drive.google.com/drive/folders/1ieAJZJY1d9oHZPRUdErNO9y1awVH0i6m?usp=drive_link' color='#2B6CB0'><u>https://drive.google.com/drive/folders/1ieAJZJY1d9oHZPRUdErNO9y1awVH0i6m?usp=drive_link</u></a><br/>"
+        "• <b>GitHub Repository Folder:</b> "
+        "<a href='https://github.com/nebyu11/set-high_level_programming/tree/main/ai_lab_output_validation' color='#2B6CB0'><u>https://github.com/nebyu11/set-high_level_programming/tree/main/ai_lab_output_validation</u></a><br/>"
+        "• <b>Direct Python Script:</b> "
+        "<a href='https://github.com/nebyu11/set-high_level_programming/blob/main/ai_lab_output_validation/validate_ai_query.py' color='#2B6CB0'><u>validate_ai_query.py (GitHub File View)</u></a>"
     )
     story.append(Paragraph(gdrive_banner, link_banner_style))
 
