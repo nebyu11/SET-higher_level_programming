@@ -2,17 +2,19 @@
 """Defines unittests for base.py.
 
 Unittest classes:
-    TestBase_instantiation - line 21
-    TestBase_to_json_string - line 108
-    TestBase_save_to_file - line 154
-    TestBase_from_json_string - line 232
-    TestBase_create - line 286
-    TestBase_load_from_file - line 338
-    TestBase_save_to_file_csv - line 404
-    TestBase_load_from_file_csv - line 482
+    TestBase_instantiation - line 23
+    TestBase_to_json_string - line 110
+    TestBase_save_to_file - line 156
+    TestBase_from_json_string - line 234
+    TestBase_create - line 288
+    TestBase_load_from_file - line 340
+    TestBase_save_to_file_csv - line 406
+    TestBase_load_from_file_csv - line 484
+    TestBase_draw - line 550
 """
 import os
 import unittest
+from unittest.mock import patch, MagicMock
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -540,9 +542,56 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         output = Square.load_from_file_csv()
         self.assertEqual([], output)
 
+    def test_load_from_file_csv_empty_file(self):
+        Square.save_to_file_csv([])
+        output = Square.load_from_file_csv()
+        self.assertEqual([], output)
+
     def test_load_from_file_csv_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.load_from_file_csv([], 1)
+
+
+class TestBase_draw(unittest.TestCase):
+    """Unittests for testing draw method of Base class."""
+
+    def test_draw_no_args(self):
+        with self.assertRaises(TypeError):
+            Base.draw()
+
+    def test_draw_one_arg(self):
+        with self.assertRaises(TypeError):
+            Base.draw([])
+
+    def test_draw_more_than_two_args(self):
+        with self.assertRaises(TypeError):
+            Base.draw([], [], [])
+
+    @patch("turtle.exitonclick")
+    @patch("turtle.Turtle")
+    def test_draw_empty_lists(self, mock_turtle, mock_exit):
+        Base.draw([], [])
+        mock_turtle.assert_called_once()
+        mock_exit.assert_called_once()
+
+    @patch("turtle.exitonclick")
+    @patch("turtle.Turtle")
+    def test_draw_None_args(self, mock_turtle, mock_exit):
+        Base.draw(None, None)
+        mock_turtle.assert_called_once()
+        mock_exit.assert_called_once()
+
+    @patch("turtle.exitonclick")
+    @patch("turtle.Turtle")
+    def test_draw_rectangles_and_squares(self, mock_turtle, mock_exit):
+        mock_instance = MagicMock()
+        mock_turtle.return_value = mock_instance
+        rects = [Rectangle(10, 20, 1, 2), Rectangle(30, 40)]
+        sqs = [Square(15, 3, 4), Square(25)]
+        Base.draw(rects, sqs)
+        self.assertTrue(mock_instance.forward.called)
+        self.assertTrue(mock_instance.goto.called)
+        mock_exit.assert_called_once()
 
 
 if __name__ == "__main__":
