@@ -239,7 +239,7 @@ def create_pdf(filename="c:/Users/Administrator/Desktop/SE 202/AI_Output_Validat
     gdrive_banner = (
         "<b>SUBMISSION CODE ACCESS (CRITERION 1):</b><br/>"
         "• <b>Primary Google Drive Code Link:</b> "
-        "<font color='#2B6CB0'><u>https://drive.google.com/drive/folders/1_validate_ai_query_orm_submission?usp=sharing</u></font><br/>"
+        "<font color='#2B6CB0'><u>https://drive.google.com/drive/folders/1ieAJZJY1d9oHZPRUdErNO9y1awVH0i6m?usp=drive_link</u></font><br/>"
         "• <b>Local Code Artifact:</b> <code>validate_ai_query.py</code> &nbsp;|&nbsp; "
         "<b>Repository:</b> <code>set-high_level_programming</code>"
     )

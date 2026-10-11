@@ -1,6 +1,6 @@
 # AI Lab Assignment: Output Validation and Debugging (ORM Challenge)
 
-> **Submission Link:** [Google Drive Code Link (validate_ai_query.py)](https://drive.google.com/drive/folders/YOUR_DRIVE_FOLDER_ID?usp=sharing)  
+> **Submission Link:** [Google Drive Code Link (validate_ai_query.py)](https://drive.google.com/drive/folders/1ieAJZJY1d9oHZPRUdErNO9y1awVH0i6m?usp=drive_link)  
 > **Course:** W7 Higher Level Programming — AI Lab Assignment  
 > **Weight:** 1.0% | Graded Project  
 > **Target Files:** `validate_ai_query.py`, `setup_db.py`, `AI_Output_Validation_ORM_Debugging.pdf`
