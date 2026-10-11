@@ -61,6 +61,7 @@ def init_database(db_name="orm_practice.db"):
     session.add_all(cities)
     session.commit()
     session.close()
+    engine.dispose()
     print(f"Database successfully initialized at: {db_name}")
 
 
