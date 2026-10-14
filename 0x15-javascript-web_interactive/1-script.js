@@ -1,4 +1,3 @@
-const paragraphs = document.querySelectorAll('p');
-paragraphs.forEach((paragraph) => {
-  paragraph.style.color = '#0000FF';
+document.querySelectorAll('p').forEach((p) => {
+  p.style.color = '#0000FF';
 });
