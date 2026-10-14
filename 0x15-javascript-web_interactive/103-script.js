@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const langInput = document.querySelector('#language_code');
+  const helloDiv = document.querySelector('#hello');
+
   const translate = async () => {
-    const langCode = document.querySelector('#language_code').value.trim();
-    const helloDiv = document.querySelector('#hello');
+    const langCode = langInput.value.trim();
+    if (!langCode) {
+      helloDiv.textContent = 'Please enter a language code.';
+      return;
+    }
     try {
       const response = await fetch(`https://hellosalut.stefanbohacek.dev/?lang=${langCode}`);
       if (!response.ok) {
@@ -16,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('#btn_translate').addEventListener('click', translate);
 
-  document.querySelector('#language_code').addEventListener('keydown', (event) => {
+  langInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       translate();
     }
