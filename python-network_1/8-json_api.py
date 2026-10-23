@@ -12,5 +12,5 @@ try:
         print("[{}] {}".format(json_data.get('id'), json_data.get('name')))
     else:
         print("No result")
-except ValueError:
+except (ValueError, Exception):
     print("Not a valid JSON")
